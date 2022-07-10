@@ -5,20 +5,33 @@ import Header from "./Header";
 
 export default function App() {
   const [user, setUser] = useState(null);
+  const [sessionCheck, setSessionCheck] = useState(false);
 
   useEffect(() => {
     // auto-login
     fetch("/me").then((r) => {
       if (r.ok) {
-        r.json().then((user) => setUser(user));
+        r.json().then((user) => {
+          setUser(user);
+        });
       }
+      setSessionCheck(true);
     });
   }, []);
 
-  return (
-    <div className="navcontainer">
-      <Header />
-      <Outlet context={[user, setUser]} />
-    </div>
-  );
+  if (sessionCheck) {
+    return (
+      <div className="navcontainer">
+        <Header user={user} setUser={setUser} />
+        <Outlet context={[user, setUser]} />
+      </div>
+    );
+  } else {
+    return (
+      <div>
+        <Header />
+        <p>Loading...</p>
+      </div>
+    );
+  }
 }

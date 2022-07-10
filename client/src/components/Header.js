@@ -1,10 +1,9 @@
 import React from "react";
-import { NavLink, useOutlet, useOutletContext } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import image from "../alternativebookwormlogo.jpg";
-// import logo from "../BookWormLogosml.jpg";
+import logo from "../bookworm.jpg";
 
-export default function Header() {
-  // const { user, setUser } = useOutletContext();
+export default function Header({ user, setUser, handleLogout }) {
   const linkStyles = {
     display: "inline-block",
     width: "100px",
@@ -14,20 +13,20 @@ export default function Header() {
     // background: "#F1A984",
     // #f1965c
     textDecoration: "none",
-    color: "black",
+    color: "#D3C1D2",
     fontSize: "18px",
   };
 
-  // function handleLogout() {
-  //   fetch("/logout", { method: "DELETE" }).then((r) => {
-  //     if (r.ok) {
-  //       setUser(null);
-  //     }
-  //   });
-  // }
+  function handleLogout() {
+    fetch("/logout", { method: "DELETE" }).then((r) => {
+      if (r.ok) {
+        setUser(null);
+      }
+    });
+  }
 
   return (
-    <div>
+    <div className="header">
       <div className="navcontainer">
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -42,8 +41,8 @@ export default function Header() {
             className="navbar"
             style={{ borderBottom: "solid 1px", paddingBottom: "1rem" }}
           >
-            <img className="navlogo" src={image} alt="logo" />
-            {/* {user ? (
+            <img className="navlogo" src={logo} alt="logo" />
+            {user ? (
               <button
                 style={linkStyles}
                 className="nav-item"
@@ -77,28 +76,7 @@ export default function Header() {
                   Login
                 </NavLink>
               </>
-            )} */}
-            <NavLink
-              className="navlink"
-              style={linkStyles}
-              activeStyle={{
-                background: "#EABCA2",
-              }}
-              to="/login"
-            >
-              Login
-            </NavLink>{" "}
-            |{" "}
-            <NavLink
-              className="navlink"
-              style={linkStyles}
-              activeStyle={{
-                background: "#EABCA2",
-              }}
-              to="/signup"
-            >
-              Sign Up
-            </NavLink>{" "}
+            )}
             |{" "}
             <NavLink
               className="navlink"
@@ -108,7 +86,7 @@ export default function Header() {
               }}
               to="/book_clubs"
             >
-              Books
+              BookClubs
             </NavLink>{" "}
             |{" "}
             <NavLink
@@ -119,7 +97,7 @@ export default function Header() {
               }}
               to="/books"
             >
-              BookClubs
+              Books
             </NavLink>
           </nav>
         </div>

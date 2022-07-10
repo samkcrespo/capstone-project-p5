@@ -42,12 +42,14 @@ tangerine: #f1965c */
 
 /* NAVLINK/HEADER STYLING */
 .navlogo {
-  width: 200px;
+  width: 400px;
   padding-bottom: 0;
+  padding-left: 20px;
+  padding-top: 15px;
 }
 .navlink {
   box-shadow: inset 0 0 0 0 #977a71;
-  color: #977a71;
+  color: #d3c1d2;
   padding: 0 0.25rem;
   margin: 0 -0.25rem;
   transition: color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
@@ -59,7 +61,7 @@ tangerine: #f1965c */
 
 /* Presentational NavLink styles */
 .navlink {
-  color: #977a71;
+  color: #d3c1d2;
   font-family: "Roboto Slab", sans-serif;
   font-size: 27px;
   font-weight: 700;
@@ -68,14 +70,14 @@ tangerine: #f1965c */
 }
 
 .navcontainer {
-  padding-left: 20px;
+  padding-left: 0px;
 }
 
 body {
   /* display: grid;
   height: 100vh;
   place-items: center; */
-  background-color: #c7998c;
+
   font-family: "Roboto Slab", sans-serif;
 }
 
@@ -146,7 +148,7 @@ header a img {
   font-family: "Roboto", sans-serif;
   text-transform: uppercase;
   outline: 0;
-  background-color: #c7998c;
+  background-color: #301934;
   /* background-image: linear-gradient(45deg, #328f8a, #08ac4b); */
   width: 100%;
   border: 0;
@@ -163,7 +165,7 @@ header a img {
   font-size: 12px;
 }
 .form .message a {
-  color: #c7998c;
+  color: grey;
   text-decoration: none;
 }
 
@@ -175,9 +177,13 @@ header a img {
 }
 
 body {
-  background-color: #c7998c;
+  background-color: #f2f2f2;
   /* background-image: linear-gradient(45deg, #328f8a, #08ac4b); */
   font-family: "Roboto", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.header {
+  background-color: #301934;
 }
