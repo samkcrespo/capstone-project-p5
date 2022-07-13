@@ -11,6 +11,10 @@ class UsersController < ApplicationController
     render json: current_user, include: ['book_clubs', 'book_clubs.users', 'book_clubs.book_club_books', 'book_clubs.book_club_books.book', 'book_clubs.book_club_books.comments']
   end
 
+  # def show
+  #   render json: @user, status: :ok
+  # end
+
   def create
     user = User.create!(user_params)
     if user.valid?
@@ -20,6 +24,13 @@ class UsersController < ApplicationController
       render json: {errors: user.errors.full_messages}, status: :unprocessable_entity
     end 
   end
+
+   def mybookclubs 
+        user = User.find(params[:id])
+        if @user 
+            render json: user.book_clubs, include: [:users]
+        end
+    end
 
   def destroy
     @user.destroy

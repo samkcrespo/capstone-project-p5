@@ -1,6 +1,10 @@
 class CommentsController < ApplicationController
 
-  def create 
+    def index
+        render json: Comment.all, status: :ok
+    end
+    
+    def create 
         comment = Comment.create!(comment_params)
         render json: comment, status: :created
     end

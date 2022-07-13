@@ -2,33 +2,31 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./components/App";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Login from "./components/Login";
-import Signup from "./components/Signup";
-import BookClubs from "./components/BookClubs";
-import Books from "./components/Books";
-
+import { BrowserRouter as Router } from "react-router-dom";
 import reportWebVitals from "./reportWebVitals";
 
 ReactDOM.render(
-  <BrowserRouter>
-    <Routes>
-      <Route path="/" element={<App />}>
-        <Route path="login" element={<Login />} />
-        <Route path="signup" element={<Signup />} />
-        <Route path="book_clubs" element={<BookClubs />} />
-        <Route path="books" element={<Books />} />
-        <Route
-          path="*"
-          element={
-            <main style={{ padding: "1rem" }}>
-              <p>No Route Match path</p>
-            </main>
-          }
-        />
-      </Route>
-    </Routes>
-  </BrowserRouter>,
+  // <BrowserRouter>
+  //   <Routes>
+  //     <Route path="/" element={<App />}>
+  //       <Route path="login" element={<Login />} />
+  //       <Route path="signup" element={<Signup />} />
+  //       <Route path="book_clubs" element={<BookClubs />} />
+  //       <Route path="books" element={<Books />} />
+  //       <Route
+  //         path="*"
+  //         element={
+  //           <main style={{ padding: "1rem" }}>
+  //             <p>No Route Match path</p>
+  //           </main>
+  //         }
+  //       />
+  //     </Route>
+  //   </Routes>
+  // </BrowserRouter>,
+  <Router>
+    <App />
+  </Router>,
   document.getElementById("root")
 );
 

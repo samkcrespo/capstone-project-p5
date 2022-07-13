@@ -1,5 +1,5 @@
 class BookClubBookSerializer < ActiveModel::Serializer
-  attributes :id, :botm?, :rating
-  has_one :book
-  has_one :book_club
+  attributes :id, :botm?, :rating, :book
+  belongs_to :book
+  belongs_to :book_club
 end

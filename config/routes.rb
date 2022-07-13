@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   
-  resources :club_users
+  resources :book_club_users
   resources :comments
   resources :book_club_books
   resources :book_clubs
@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   post "/login", to: "sessions#create"
   get "/me", to: "users#show"
   delete "/logout", to: "sessions#destroy"
+  get '/:id/book_clubs', to: 'users#my_book_clubs'
   # Routing logic: fallback requests for React Router.
   # Leave this here to help deploy your app later!
   get "*path", to: "fallback#index", constraints: ->(req) { !req.xhr? && req.format.html? }

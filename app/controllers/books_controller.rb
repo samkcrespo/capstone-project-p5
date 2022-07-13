@@ -1,5 +1,11 @@
 class BooksController < ApplicationController
-   before_action :set_book, only: [:show, :update, :destroy]
+   before_action :find_book, only: [:show, :update, :destroy]
+
+
+    def index
+        render json: Book.all, status: :ok
+    end
+
 
     def create 
         book = Book.create(book_params)
